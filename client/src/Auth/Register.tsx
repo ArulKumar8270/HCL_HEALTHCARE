@@ -32,13 +32,14 @@ const Register = () => {
                 return;
             }
             const response = await axios.post(
-                `${(process.env.VITE_SERVER_URL as string)}/api/v1/auth/register`,
+                `${(import.meta as any).env.VITE_SERVER_URL}/api/v1/auth/register`,
                 {
                     name,
                     email,
                     phone,
                     password,
                     address,
+                    role: 1,
                 }
             );
             // Registration successful

@@ -17,7 +17,7 @@ const PrivateRoute = () => {
         const authCheck = async () => {
             try {
                 const res = await axios.get(
-                    `${(process.env.VITE_SERVER_URL as string)}/api/v1/auth/user-auth`,
+                    `${(import.meta.VITE_SERVER_URL as string)}/api/v1/auth/user-auth`,
                     {
                         headers: {
                             Authorization: auth?.token,

@@ -41,8 +41,7 @@ const ForgotPassword = () => {
                     return;
                 }
                 const response = await axios.post(
-                    `${(process.env.VITE_SERVER_URL as string)
-                    }/api/v1/auth/forgot-password`,
+                    `${(import.meta as any).env.VITE_SERVER_URL}/api/v1/auth/forgot-password`,
                     {
                         email,
                         password,
@@ -54,17 +53,6 @@ const ForgotPassword = () => {
                         toastId: "passwordReset",
                     });
                     navigate("/login");
-                }
-            } else {
-                const response = await axios.post(
-                    `${(process.env.VITE_SERVER_URL as string)}/api/v1/auth/user-exist`,
-                    {
-                        email,
-                    }
-                );
-
-                if (response.status === 200) {
-                    setUserFound(true);
                 }
             }
         } catch (error) {

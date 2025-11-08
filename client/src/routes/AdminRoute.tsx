@@ -15,7 +15,7 @@ const AdminRoute = () => {
         const authCheck = async () => {
             try {
                 const res = await axios.get(
-                    `${(process.env.VITE_SERVER_URL as string)}/api/v1/auth/admin-auth`,
+                    `${(import.meta as any).env.VITE_SERVER_URL}/api/v1/auth/admin-auth`,
                     {
                         headers: {
                             Authorization: auth?.token,
