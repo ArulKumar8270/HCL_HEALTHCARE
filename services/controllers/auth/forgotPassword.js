@@ -17,7 +17,6 @@ export const forgotPasswordController = async (req, res) => {
 
         //FINDING THE USER
         const user = await userModel.findOne({ email });
-
         if (!user) {
             return res.status(401).send({
                 success: false,
@@ -26,7 +25,6 @@ export const forgotPasswordController = async (req, res) => {
             });
         }
         const newPassword = await hashPassword(password);
-
         //IF USER EXISTS-
         const response = await userModel.findOneAndUpdate(
             { email: email },
@@ -34,7 +32,6 @@ export const forgotPasswordController = async (req, res) => {
                 password: newPassword,
             }
         );
-
         //SUCCESS RESPONSE
         res.status(200).send({
             success: true,
