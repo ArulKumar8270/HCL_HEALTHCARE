@@ -13,16 +13,11 @@ const Register = () => {
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [address, setAddress] = useState("");
-    const [isSeller, setIsSeller] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     const handlePasswordToggle = () => {
         setShowPassword(!showPassword);
-    };
-
-    const handleCheckbox = () => {
-        setIsSeller(!isSeller);
     };
 
     const navigate = useNavigate();
@@ -44,7 +39,6 @@ const Register = () => {
                     phone,
                     password,
                     address,
-                    isSeller,
                 }
             );
             // Registration successful

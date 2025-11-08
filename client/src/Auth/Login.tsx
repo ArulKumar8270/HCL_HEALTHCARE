@@ -91,21 +91,6 @@ const Login = () => {
                         {/* Left Panel */}
                         <div className="hidden md:flex flex-col justify-center items-center bg-gradient-to-br from-[#0bbad8] to-[#0c115d] w-full md:w-1/2 p-10">
                             <h2 className="text-white text-3xl font-bold mb-4 text-center">Log in</h2>
-                            <p className="text-cyan-100 text-base mb-6 text-center">
-                                Get access to your Orders, Wishlist and Recommendations
-                            </p>
-                            <div className="bg-white/10 rounded-lg p-4 text-xs text-cyan-100 mb-6 w-full text-center">
-                                <div className="mb-2">
-                                    <span className="font-semibold">User</span><br />
-                                    username - test@test.com<br />
-                                    password - test123
-                                </div>
-                                <div>
-                                    <span className="font-semibold">Admin</span><br />
-                                    username - store@flipkart.com<br />
-                                    password - admin123
-                                </div>
-                            </div>
                         </div>
                         {/* Right Panel (Form) */}
                         <div className="w-full md:w-1/2 flex flex-col justify-center p-8 md:p-12">

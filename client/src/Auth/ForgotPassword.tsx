@@ -48,8 +48,6 @@ const ForgotPassword = () => {
                         password,
                     }
                 );
-                console.log(response);
-
                 if (response.status === 200) {
                     setUserFound(false);
                     toast.success("Password Reset Successfully!", {
@@ -70,7 +68,6 @@ const ForgotPassword = () => {
                 }
             }
         } catch (error) {
-            console.error("Error:", error);
             //user not registered
             (error as any).response?.status === 401 &&
                 (error as any).response.data?.errorType === "invalidUser" &&
