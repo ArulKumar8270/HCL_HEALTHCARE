@@ -1,11 +1,11 @@
-import { hashPassword, comparePassword } from "../../helper/authHelper.js";
+import { hashPassword} from "../../helper/authHelper.js";
 import userModel from "../../models/userModel.js";
 
 //POST REGISTER
 export const registerController = async (req, res) => {
     try {
+        console.log(req.body, "768976986")
         const { name, email, phone, password, address, role } = req.body;
-
         //setup validations
         if (!name) res.send({ message: "Name is Required" });
         if (!email) res.send({ message: "Email is Required" });
@@ -24,7 +24,6 @@ export const registerController = async (req, res) => {
 
         //Register User
         const hashedPassword = await hashPassword(password);
-
         const user = new userModel({
             name,
             email,
@@ -41,6 +40,7 @@ export const registerController = async (req, res) => {
             user,
         });
     } catch (error) {
+        console.error("Error in Registration:", error); // Log the error for debugging
         res.status(500).send({
             success: false,
             message: "Error in Registration",
@@ -49,17 +49,17 @@ export const registerController = async (req, res) => {
     }
 };
 
-// GET ALL USERS {{ edit_1 }}
+// GET ALL USERS
 export const getAllUsersController = async (req, res) => { 
     try { 
-        const users = await userModel.find({}); // Fetch all users {{ edit_1 }}
+        const users = await userModel.find({}); // Fetch all users
         res.status(200).send({ 
             success: true, 
             message: "All users fetched successfully", 
             users, 
         }); 
     } catch (error) { 
-        console.error("Error fetching users:", error); // Log the error for debugging {{ edit_1 }}
+        console.error("Error fetching users:", error); // Log the error for debugging
         res.status(500).send({ 
             success: false, 
             message: "Error fetching users", 

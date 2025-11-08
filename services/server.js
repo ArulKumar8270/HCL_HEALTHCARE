@@ -17,7 +17,7 @@ dotenv.config();
 //middleware
 app.use(cors());
 app.use(morgan("dev"));
-
+app.use(express.json());
 //connect DB
 connectDB();
 

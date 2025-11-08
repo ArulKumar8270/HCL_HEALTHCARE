@@ -9,7 +9,7 @@ const requireSignIn = asyncHandler(async (req, res, next) => {
             return res.status(401).json({ message: "JWT must be provided" });
         }
 
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        const decoded = jwt.verify(token, import.meta.JWT_SECRET);
 
         // Attach user information to the request
         req.user = await UserModel.findById(decoded._id);
